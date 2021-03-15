@@ -14,3 +14,7 @@
     top: 0; /* Position the navbar at the top of the page */
     width: 100%; /* Full width */
 }
+
+body {
+	padding-bottom: 50px;
+}

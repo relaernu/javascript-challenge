@@ -10,10 +10,9 @@
       <title>UFO Sighted Data Search</title>
     </head>
     <body>
-    
       <header id="header" class="header bgheader">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light topnav">
-          <a class="navbar-brand" href="#">Navbar</a>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark topnav">
+          <a class="navbar-brand" href="#">UFO</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -42,7 +41,7 @@
 
       <!-- Data Section -->
       <section id="data" style="padding-top: 50px; padding-bottom: 50px;">
-        <div class="container" >
+        <div class="container-fluid">
           <div class="row">
             <div class="col-12 text-center">
               <h1>UFO Sighted Records</h1>
@@ -82,12 +81,12 @@
                   <input type="date" class="form-control" id="endDate">
                 </div>
                 <div class="form-group">
-                  <label for="city">Cities(city or [city1,city2,...]):</label>
-                  <input type="text" class="form-control" id="cities">
+                  <label for="state">States(state or state1,state2,...):</label>
+                  <input type="text" class="form-control" id="states">
                 </div>
                 <div class="form-group">
-                  <label for="state">States(state or [state1,state2,...]):</label>
-                  <input type="text" class="form-control" id="states">
+                  <label for="city">Cities(city or city1,city2,...):</label>
+                  <input type="text" class="form-control" id="cities">
                 </div>
                 <div class="form-group">
                   <label for="shape">Shape:</label>
@@ -95,6 +94,7 @@
 
                   </select>
                 </div>
+                <button type="submit" class="btn btn-primary">Search</button>
               </form>
             </div>
           </div>
