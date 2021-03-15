@@ -67,6 +67,7 @@ var id_searchSection = "search";
 var id_searchText = "searchText";
 var id_searchForm = "searchForm";
 var id_searchResult = "searchResult";
+var id_searchCriteria = "searchCriteria";
 document.getElementById(id_searchForm).addEventListener("submit", search);
 document.getElementById("startDate").addEventListener("change", datechange);
 document.getElementById("endDate").addEventListener("change", datechange);
@@ -101,6 +102,7 @@ function createSearchText(date) {
     return `<h1>Search date: <span class="badge badge-info">${date}</span></h1>`;
 }
 
+// to convert the date format in data set to "YYYY-MM-DD" format
 function AusDateToStdDate(ausDate) {
     var splitDate = ausDate.split("/");
     return splitDate[2] + "-" + 
@@ -152,5 +154,20 @@ function search(event) {
         filterdata = filterdata.filter(x => x.shape === shape);
     }
 
+    // Show search criterias
+    var datestr = (startDate.length>0 || endDate.length>0) ? "Date" : "";
+    var datefrom = startDate.length>0 ? ` from ${startDate}` : "";
+    var dateto = endDate.length>0 ? ` to ${endDate}` : "";
+    var dateall = datestr + datefrom + dateto;
+    dateall = dateall.length > 0 ? `<spcn class="badge badge-info">${dateall}</span>` : ""; 
+    var statestr = states.length > 0 ? `<span class="badge badge-info">States: ${states}</span>` : "";
+    var citiesstr = cities.length > 0 ? `<span class="badge badge-info">Cities: ${cities}</span>` : "";
+    var shapestr = shape.length > 0 ? `<span class="badge badge-info">Shape: ${shape}</span>` : "";
+
+    var criteria = "<h1>Search for: </h1>" + dateall + statestr + citiesstr + shapestr;
+
+    document.getElementById(id_searchCriteria).innerHTML = criteria;
+
+    // show table
     document.getElementById(id_searchResult).innerHTML = createTable(filterdata);
 }
